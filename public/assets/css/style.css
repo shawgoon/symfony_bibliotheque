@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+img{
+    width: 100%;
+}
+body{
+    width: 100%; 
+    height: 100vh;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.navig{
+    width: 100%;height: 3em;
+    background-color: rgb(250, 175, 234);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navig a{
+    color: rgb(243, 2, 252);
+
+}
+/* formulaire */
+
+.logForm{
+    background-color: rgb(186, 111, 221);
+    width: 50%;
+    border:rgb(243, 2, 252);
+    display: flex;
+}

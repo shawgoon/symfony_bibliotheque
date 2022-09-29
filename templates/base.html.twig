@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <ul class="navig">
+                <a href="{{path('app_home')}}">
+                    <li>Home</li>
+                </a>
+                {% if app_user %}
+                <a href="{{path('app_logout')}}">
+                    <li>Déconnexion</li>
+                </a>
+                {% else %}
+                <a href="{{path('app_inscription')}}">
+                    <li>inscription | connexion</li>
+                </a>
+                {% endif %}
+                {% is app_admin %}
+                <a href="">
+                    <li>Admin(private acces)</li>
+                </a>
+                {% endif %}
+                <a href="{{path('app_ajoutlivre')}}">
+                    <li>Ajouter un livre</li>
+                </a>
+                <a href="{{path('app_livres')}}">
+                    <li>Afficher les livres</li>
+                </a>
+            </ul>
+        </nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>

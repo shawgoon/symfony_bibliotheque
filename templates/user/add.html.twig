@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{{form_start(formulaireInscription)}}
+
+{# nom #}
+<div>
+    {{form_label(formulaireInscription.nom, 'nom')}}
+    {{form_widget(formulaireInscription.nom)}}
+</div>
+{# prenom #}
+<div>
+    {{form_label(formulaireInscription.prenom, 'prenom')}}
+    {{form_widget(formulaireInscription.prenom)}}
+</div>
+{# date #}
+<div>
+    {{form_label(formulaireInscription.birthDate, 'date')}}
+    {{form_widget(formulaireInscription.birthDate)}}
+</div>
+
+{{form_widget(formulaireInscription)}}
+<button type="submit">inscription</button>
+<button type="button"><a href="{{path('app_login')}}">Vous avez déjà un compte</a></button>
+{{form_end(formulaireInscription)}}
+{% endblock %}

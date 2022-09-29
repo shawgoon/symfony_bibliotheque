@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les livres{% endblock %}
+
+{% block body %}
+{%for livre in livres %}
+<div class="book">
+    <div>Information du livre {{livre.titre}}</div>
+    <div class="card">
+        <h4>les titre est: {{livre.titre}}</h4>
+        <h4>auteur du livre: {{livre.auteur}}</h4>
+        <p>date de sortie {{livre.dateSortie|date('d,m,Y')}}</p>
+        <p>Résumé du livre</p>
+    </div>
+</div>
+{% endblock %}

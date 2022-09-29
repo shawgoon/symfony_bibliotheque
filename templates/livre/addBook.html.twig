@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les livres{% endblock %}
+
+{% block body %}
+{%  %}
+<div class="">
+    {{form_start(formulaireInscription)}}
+
+    {{form_widget(formulaireInscription)}}
+    <button type="submit">Ajouter un livre</button>
+    {{form_end(formulaireInscription)}}  
+</div>
+{% endblock %}
