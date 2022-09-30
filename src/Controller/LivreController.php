@@ -56,12 +56,12 @@ class LivreController extends AbstractController
         ]);
     }
     /**
-     * @Route("/supprimeLivre/{id},name="app_supprimlivre")
+     * @Route("/supprimeLivre/{id}",name="app_supprimlivre")
      */
     public function remove(ManagerRegistry $doctrine, Livre $livre){
         $om = $doctrine->getManager();
         $om->remove($livre);
         $om->flush();
-        return $this->redirectToRoute("livres");
+        return $this->redirectToRoute("app_livres");
     }
 }

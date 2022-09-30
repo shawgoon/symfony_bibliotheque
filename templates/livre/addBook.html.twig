@@ -8,11 +8,11 @@
     {{form_start(formulaireInscription)}}
 
     {{form_widget(formulaireInscription)}}
-    
+
     {% if mode %}
     <button type="submit"><a href="{{path('modiflivre',{'id':livre.id})}}">modifier un livre</a></button>
     {% else %}
-    <button type="submit"><a href="{{path('ajoutlivre')}}">Ajouter un livre</a></button>
+    <button type="submit"><a href="{{path('app_ajoutlivre')}}">Ajouter un livre</a></button>
     {% endif %}
     {{form_end(formulaireInscription)}}  
 </div>
