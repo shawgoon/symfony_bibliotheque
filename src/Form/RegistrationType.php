@@ -30,7 +30,7 @@ class RegistrationType extends AbstractType
             ->add('avatar',FileType::class,[
                 'label'=>"photo de profil (jpg, png)",
                 'data_class'=>null,
-                'riquired'=>false
+                'required'=>false
             ])
             // ->add('roles')
         ;

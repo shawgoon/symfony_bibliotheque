@@ -12,5 +12,10 @@
         <p>date de sortie {{livre.dateSortie|date('d,m,Y')}}</p>
         <p>Résumé du livre</p>
     </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div><button><a href="{{path('app_modiflivre',{'id':livre.id})}}">modifier les informations du livre</a></button></div>
+    <div><button><a href="{{path('app_supprimlivre',{'id':livre.id})}}">Supprimer un livre</a></button></div>
+    {% endif %}
 </div>
+{% endfor %}
 {% endblock %}

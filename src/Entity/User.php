@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Livre;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -43,7 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     //  * propertyPath = "password",
     //  * message = "les mots de pass ne sont pas identiques")
     //  */
-    // public $confimPassword;
+    // public $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -247,14 +248,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, livre>
+     * @return Collection<int, Livre>
      */
     public function getLivre(): Collection
     {
         return $this->livre;
     }
 
-    public function addLivre(livre $livre): self
+    public function addLivre(Livre $livre): self
     {
         if (!$this->livre->contains($livre)) {
             $this->livre[] = $livre;
@@ -264,7 +265,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeLivre(livre $livre): self
+    public function removeLivre(Livre $livre): self
     {
         if ($this->livre->removeElement($livre)) {
             // set the owning side to null (unless already changed)

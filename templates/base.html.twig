@@ -20,7 +20,10 @@
                 <a href="{{path('app_home')}}">
                     <li>Home</li>
                 </a>
-                {% if app_user %}
+                <a href="{{path('app_livres')}}">
+                    <li>Afficher les livres</li>
+                </a>
+                {% if app.user %}
                 <a href="{{path('app_logout')}}">
                     <li>Déconnexion</li>
                 </a>
@@ -29,17 +32,14 @@
                     <li>inscription | connexion</li>
                 </a>
                 {% endif %}
-                {% is app_admin %}
-                <a href="">
-                    <li>Admin(private acces)</li>
+                {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{path('app_admin')}}">
+                    <li>Admin(private accès)</li>
                 </a>
-                {% endif %}
                 <a href="{{path('app_ajoutlivre')}}">
                     <li>Ajouter un livre</li>
                 </a>
-                <a href="{{path('app_livres')}}">
-                    <li>Afficher les livres</li>
-                </a>
+                {% endif %}
             </ul>
         </nav>
         {% block body %}{% endblock %}

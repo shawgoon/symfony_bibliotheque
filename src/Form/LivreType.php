@@ -16,7 +16,7 @@ class LivreType extends AbstractType
             ->add('titre')
             ->add('auteur')
             ->add('dateSortie', DateType::class,[
-                'widget'=>"single text"
+                'widget'=>"single_text"
             ])
             // ->add('User')
         ;
