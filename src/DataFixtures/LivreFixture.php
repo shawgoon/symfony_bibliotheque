@@ -25,10 +25,10 @@ class LivreFixture extends Fixture
             $user->setNom($faker->lastname)
             ->setPrenom($faker->firstname)
             ->setBirthDate($faker->dateTimeBetween($startDate='-30 years',$endDate='now'))
-            ->setAdresse($faker->streetAdress)
+            ->setAdresse($faker->streetAddress)
             ->setCodePostal($faker->postCode)
             ->setEmail($faker->email)
-            ->setPassword($this->password->encoderPassword($user,'azerty')) 
+            ->setPassword($this->passwordEncoder->encodePassword($user,'azerty')) 
             ->setAvatar("http://picsum.photo/200/300");
             $manager->persist($user);
 
@@ -36,7 +36,7 @@ class LivreFixture extends Fixture
                 $category = new Category();
                 $category->setNom($faker->safeColorName);
                 $manager->persist($category);
-                
+
                 for($j=0;$j<rand(2,4);$j++){
                     $livre = new Livre();
                     $livre->setAuteur($faker->name)
