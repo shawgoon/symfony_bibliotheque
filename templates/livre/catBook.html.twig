@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les livres par catégorie{% endblock %}
+
+{% block body %}
+{%for livre in catLivres %}
+<div class="card">
+    <h2>catégorie de livre</h2>
+    <div>Information du livre {{livre.titre}}</div>
+    <div class="book">
+        <h4>les titre est: {{livre.titre}}</h4>
+        <h4>auteur du livre: {{livre.auteur}}</h4>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div><button><a href="{{path('app_modiflivre',{'id':livre.id})}}">modifier les informations du livre</a></button></div>
+    <div><button><a href="{{path('app_supprimlivre',{'id':livre.id})}}">Supprimer un livre</a></button></div>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

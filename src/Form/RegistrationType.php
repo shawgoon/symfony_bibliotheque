@@ -21,7 +21,7 @@ class RegistrationType extends AbstractType
             ->add('prenom')
             ->add('email',EmailType::class)
             ->add('password',PasswordType::class)
-            // ->add('confirmPassword',PasswordType::class)
+            ->add('confirmPassword',PasswordType::class)
             ->add('birthDate',DateType::class,[
             "label"=>'date de naissance',
             "widget"=>'single_text'])
@@ -32,7 +32,7 @@ class RegistrationType extends AbstractType
                 'data_class'=>null,
                 'required'=>false
             ])
-            // ->add('roles')
+            ->add('roles')
         ;
     }
 

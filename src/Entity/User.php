@@ -10,9 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ * fields="email",
+ * message="l'email existe déjà")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -39,12 +43,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    // /**
-    //  * @Assert/EqualTo(
-    //  * propertyPath = "password",
-    //  * message = "les mots de pass ne sont pas identiques")
-    //  */
-    // public $confirmPassword;
+    /**
+     * @Assert\EqualTo(
+     * propertyPath = "password",
+     * message = "les mots de pass ne sont pas identiques")
+     */
+    public $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

@@ -63,4 +63,14 @@ class CategoryRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+// récupérer des livres par catégorie
+    public function  findLivresByCategory($id){
+        return $this->createQueryBuilder("category")
+        ->select("livres.titre","livres.auteur")
+        ->leftJoin("category.livres","livres")
+        ->andWhere("category.id = :id")
+        ->setParameter("id",$id)
+        ->getQuery()
+        ->getResult();
+    }
 }

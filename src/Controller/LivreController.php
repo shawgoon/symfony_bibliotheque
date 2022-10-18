@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Livre;
 use App\Entity\User;
 use App\Form\LivreType;
 use App\Repository\LivreRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,4 +66,16 @@ class LivreController extends AbstractController
         $om->flush();
         return $this->redirectToRoute("app_livres");
     }
+    /**
+     * @Route("/catBook/{id}",name="app_catBook")
+     */
+    public function catLivres(ManagerRegistry $doctrine, $id){
+        $om = $doctrine->getRepository(Category::class);
+        $catLivres = $om->findLivresByCategory($id);
+        return $this->render("livre/catBook.html.twig",[
+            'catLivres' => $catLivres,
+        ]);
+
+    }
+
 }
