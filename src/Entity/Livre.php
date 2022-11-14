@@ -18,7 +18,7 @@ class Livre
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="date", length=255, nullable=true)
      */
     private $dateSortie;
 

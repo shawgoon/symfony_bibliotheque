@@ -23,8 +23,8 @@ class RegistrationType extends AbstractType
             ->add('password',PasswordType::class)
             ->add('confirmPassword',PasswordType::class)
             ->add('birthDate',DateType::class,[
-            "label"=>'date de naissance',
-            "widget"=>'single_text'])
+                "label"=>'date de naissance',
+                "widget"=>'single_text'])
             ->add('adresse')
             ->add('CodePostal',NumberType::class)
             ->add('avatar',FileType::class,[
@@ -32,7 +32,7 @@ class RegistrationType extends AbstractType
                 'data_class'=>null,
                 'required'=>false
             ])
-            ->add('roles')
+            // ->add('roles')
         ;
     }
 
