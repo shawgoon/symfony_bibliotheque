@@ -20,7 +20,7 @@ class LivreCrudController extends AbstractCrudController
         return [
             TextField::new('titre'),
             TextField::new('auteur'),
-            // DateField::new('date_sortie'), // pas oublié de faire doctrine migration
+            // DateField::new('dateSortie'), // pas oublié de faire doctrine migration
             AssociationField::new('category')
         ];
     }
